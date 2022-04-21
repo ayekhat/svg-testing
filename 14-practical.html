@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 421px;
+            background-color: rgb(117, 230, 220);
+        }
+
+        .btns {
+            margin-left: 30px;
+        }
+
+        #result {
+            width: 267px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Area Calculator</h1>
+    <div class="container">
+        <span>Result:</span>
+        <span id="result"></span>
+        <button id="store" onclick="storeResult()">Store</button>
+        <button id="clear" onclick="clearResult()">Clear</button>
+    </div><br>
+    <div class="container">
+        <input type="number" id="width" placeholder="width">
+        <input type="number" id="height" placeholder="height">
+        <button id="calculate" onclick="calculateArea()">Calculate</button>
+    </div>
+    <h3 style="visibility:hidden" id="header3">Result list</h3>
+    <ul id="resultlist"></ul>
+    <script>
+        let width = document.getElementById("width");
+        let height = document.getElementById("height");
+        let resultlist = document.getElementById("result");
+
+        function calculateArea() {
+            if (width.value == 0 || height.value == 0) {
+                alert("Please fill width and height")
+            }
+
+            else {
+                let area = width.value * height.value;
+                let result = ` ${area}`;
+                document.getElementById("result").innerHTML = `${width.value}ft x ${height.value}ft=${result} ft<sup>2</sup>`;
+                width.value = ""
+                height.value = ""
+            }
+
+            // return result;
+        }
+
+        function storeResult() {
+
+            if (resultlist.innerHTML == "") {
+                alert("Result is empty")
+            }
+            // console.log(resultlist);
+            else {
+                document.getElementById("header3").style.visibility = "visible";
+                document.getElementById("resultlist").innerHTML += `<li>${resultlist.innerHTML}</li>`;
+                clearResult();
+            }
+
+        }
+
+        function clearResult() {
+            resultlist.innerHTML = ""
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        fieldset {
+            display: inline-block;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem aliquid assumenda a quo atque repellat nostrum
+            accusantium odio ducimus provident tempora vel, placeat perspiciatis pariatur voluptates ab, sint facere
+            est.</p>
+    </div>
+    <div class="box">
+        <form action="">
+            <fieldset id="controlForm">
+                <legend>Text Control</legend>
+                <label for="text">Text</label>
+                <input type="text" id="text" required>
+
+                <label for="color">Color</label>
+                <input type="color" id="color">
+
+                <label for="range">Font Size</label>
+                <input type="range" id="range" min="10" max="100">
+
+                <label for="">font style</label>
+                <select name="" id="fontStyle">
+                    <option value="Boman Old Style Bold">Boman Old Style Bold</option>
+                    <option value="Adobe Caslon Pro">Adobe Caslon Pro</option>
+                    <option value="Algerian Regular">Algerian Regular</option>
+                    <option value="Bodoni MT">Bodoni MT</option>
+                    <option value="Calibri">Calibri</option>
+                </select>
+                <button>Run</button>
+            </fieldset>
+        </form>
+        <p>Min ga lar par</p>
+    </div>
+
+    <script>
+        let text = document.querySelector("#text");
+        let output = document.querySelector("p");
+        let color = document.querySelector("[type='color']");
+        let fontSize = document.querySelector("#range");
+        let fontStyle = document.querySelector("select");
+
+        // text.addEventListener("keyup", function () {
+        //     output.innerText = this.value;
+        // })
+
+        // color.addEventListener("change", function () {
+        //     // console.log(this);
+        //     output.style.color = this.value;
+        // })
+
+        // fontSize.addEventListener("change", function () {
+        //     // console.log(this.value);
+        //     output.style.fontSize = this.value + "px";
+        // });
+
+        // fontStyle.addEventListener("change", function () {
+        //     // console.log(this.value);
+        //     output.style.fontFamily = this.value;
+        // });
+
+        document.querySelector("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            output.innerText = text.value;
+            output.style.color = color.value;
+            output.style.fontSize = fontSize.value + "px";
+            output.style.fontFamily = fontStyle.value;
+            document.forms[0].reset();
+
+        });
+
+        // document.querySelectorAll("div")[0].addEventListener("click", function () {
+        //     this.style.backgroundColor = "red";
+        //     // console.log("Hello");
+        // }, true);
+
+        document.querySelectorAll("p")[0].addEventListener("click", function () {
+            this.style.color = "green";
+            // console.log("Hello");
+        }, true);
+    </script>
+</body>
+
+</html>

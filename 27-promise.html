@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .go {
+            color: green;
+        }
+
+        .stop {
+            color: red;
+        }
+
+        .wait {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <video></video> -->
+    <!-- <video width="320" height="240" controls>
+        <source src="./js/apple-watch-5.mp4" type="video/mp4">
+        <source src="./js/apple-watch-5.mp4" type="video/ogg">
+        Your browser does not support the video tag.
+    </video> -->
+    <p id="demo"></p>
+    <div id="my_box">
+        <h3>Hello World</h3>
+    </div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        // new Promise((resolve, reject) => {
+        //     console.log('Initial');
+
+        //     resolve();
+        //     // reject()
+        // })
+        //     .then(() => {
+        //         throw new Error('Something failed');
+
+        //         console.log('Do this');
+        //     })
+        //     .catch(() => {
+        //         console.error('Do that');
+        //     })
+        //     .then(() => {
+        //         console.log('Do this, no matter what happened before');
+        //     });
+        // navigator.getUserMedia = navigator.getUserMedia ||
+        //     navigator.webkitGetUserMedia ||
+        //     navigator.mozGetUserMedia;
+
+        // if (navigator.getUserMedia) {
+        //     navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
+        //         function (stream) {
+        //             var video = document.querySelector('video');
+        //             video.srcObject = stream;
+        //             video.onloadedmetadata = function (e) {
+        //                 video.play();
+        //             };
+        //         },
+        //         function (err) {
+        //             console.log("The following error occurred: " + err.name);
+        //         }
+        //     );
+        // } else {
+        //     console.log("getUserMedia not supported");
+        // }
+
+
+
+        // setInterval(myTimer, 1000);
+
+        // function myTimer() {
+        //     const d = new Date();
+        //     document.getElementById("demo").innerHTML = d.toLocaleString();
+        // }
+
+        let nIntervId;
+
+        function changeColor() {
+            // check if already an interval has been set up
+            if (!nIntervId) {
+                nIntervId = setInterval(flashText, 1000);
+            }
+        }
+
+        function flashText() {
+            const oElem = document.getElementById("my_box");
+            if (oElem.className === "go") {
+                oElem.className = "wait";
+            } else if (oElem.className === "wait") {
+                oElem.className = "stop";
+            }
+            else {
+                oElem.className = "go"
+            }
+        }
+
+        function stopTextColor() {
+            clearInterval(nIntervId);
+            // release our intervalID from the variable
+            nIntervId = null;
+        }
+
+        document.getElementById("start").addEventListener("click", changeColor);
+        document.getElementById("stop").addEventListener("click", stopTextColor);
+    </script>
+</body>
+
+</html>

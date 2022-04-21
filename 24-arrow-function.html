@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // let one = () => {
+        //     return "this is one"
+        // }
+        // let two = () => {
+        //     let x = "this is two"
+        //     return x
+        // }
+        // let three = (x) => {
+        //     return "this is " + x;
+        // }
+        // let four = (x, y) => {
+        //     let z = x + y;
+        //     return z;
+        // }
+        // // (function () {
+        // //     console.log("this is five");
+        // //     return "this is five"
+        // // })();
+
+        // (() => {
+        //     console.log("this is five");
+        //     return "this is five"
+        // })();
+
+        // window.addEventListener("click", () => {
+        //     console.log("this is six");
+        // })
+        // let seven = {
+        //     name: "seven",
+        //     showName: () => {
+        //         return `this is ${this.name}`
+        //     }
+        // }
+        let fruits = ["apple", "mango", "orange", "tomato", "coconut", "kiwi", "strawberry"]
+        let arr1 = fruits.filter((fruits) => fruits.length == 5).map((el) => el.toUpperCase()).join("-").toLowerCase();
+        console.log(arr1);
+
+        let marks = [45, 50, 60, 85, 100, 55];
+        let arr2 = marks.filter((mark) => mark >= 40).map((mark) => mark.toString());
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

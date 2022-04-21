@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop watch</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .stopwatch {
+            font-size: 35px;
+
+        }
+
+        .box {
+            margin-top: 15px;
+        }
+
+        .milliseconds {
+            text-align: right;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 300px;margin: auto">
+        <div class="stopwatch">00 : 00 : 00</div>
+        <div class="milliseconds"></div>
+        <div class="box">
+            <button>start</button>
+            <button>pause</button>
+            <button>resume</button>
+            <button>restart</button>
+        </div>
+    </div>
+    <script>
+        let seconds = 0;
+        let hours = 0;
+        let minutes = 0;
+        let milliseconds = 0;
+        let startbtn = document.querySelectorAll("button")[0];
+        let pausebtn = document.querySelectorAll("button")[1];
+        let resumebtn = document.querySelectorAll("button")[2];
+        let restartbtn = document.querySelectorAll("button")[3];
+        let id;
+        let milliId;
+
+        let start = () => {
+
+            milliseconds += 1;
+            if (milliseconds >= 9) {
+                milliseconds = 0;
+
+                seconds += 1;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes += 1;
+
+                    if (minutes === 60) {
+                        minutes = 0;
+                        hours += 1;
+                    }
+                }
+
+                let secondText = seconds < 10 ? "0" + seconds.toString() : seconds.toString();
+                let minuteText = minutes < 10 ? "0" + minutes.toString() : minutes.toString();
+                let hourText = hours < 10 ? "0" + hours.toString() : hours.toString();
+                document.querySelector(".stopwatch").textContent = hourText + " : " + minuteText + " : " + secondText;
+            }
+            document.querySelector(".milliseconds").textContent = milliseconds;
+
+        }
+
+
+
+        startbtn.addEventListener("click", () => {
+            id = setInterval(start, 100);
+            // removeInterval(id)
+            // milliId = setInterval(milli, 1);
+            setinterval(() => { console.log("a"); }, 100);
+        });
+
+        pausebtn.addEventListener("click", () => {
+            clearInterval(id);
+            // clearInterval(milliId);
+        })
+
+        resumebtn.addEventListener("click", () => {
+            clearInterval(id);
+            // clearInterval(milliId)
+            setInterval(start, 1);
+            // setInterval(milli, 1);
+        });
+
+        restartbtn.addEventListener("click", () => {
+            clearInterval(id);
+
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            milliseconds = 0;
+            // clearInterval(milliId);
+            setInterval(start, 1);
+            // setInterval(milli, 1)
+        })
+    </script>
+</body>
+
+</html>

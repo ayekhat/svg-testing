@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let mySelf = {
+        //     name: "Aye Khat",
+        //     age: 22,
+        //     bf: "Kim Seok Jin",
+        //     skill: "Html",
+        //     teach: function () {
+        //         return `${this.name} teaches ${this.skill}`;
+        //     }
+        // }
+
+        // class Myself {
+        //     //constructor
+        //     constructor(n, a, b) {
+        //         // console.log("I am constructor" + n);
+        //         this.name = n;
+        //         this.age = 22;
+        //         this.bf = "Kim Seok Jin";
+        //     }
+        //properties
+        // name = "Aye Khat";
+        // static age = "22";
+        // bf = "kim seok jin";
+        // skill = "Html";
+        //     teach() {
+        //         return this.name + " can teach";
+        //     }
+        //     studyYear() {
+        //         return "2022";
+        //     }
+
+        // }
+
+        //instantiate
+        // let mySelf = new Myself("AKKK", 22, "Kim Seok Jin");
+        // console.log(mySelf.name);
+        // console.log(mySelf.studyYear());
+
+        class Student {
+            constructor(name, age, phone) {
+                this.name = name;
+                this.age = age;
+                this.phone = phone;
+            }
+            learn() {
+                return this.name + " can learn"
+            }
+        }
+        let s1 = new Student("MgMg", 12, 0953485048);
+        let s2 = new Student("KyawKyaw", 12, 0953485048);
+        let s3 = new Student("AyeAye", 12, 0953485048);
+        let s4 = new Student("SuSu", 12, 0953485048);
+        let s5 = new Student("LinLin", 12, 0953485048);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat',
+        sans-serif;
+    font-family: 'Roboto',
+        sans-serif;
+}
+
+body {
+    background-color: lightgray;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.earth {
+    width: 80%;
+    margin: -10px auto;
+    padding: 20px 0;
+}
+
+.header {
+    color: black;
+}
+
+.description {}
+
+.country {
+    color: black;
+    font-size: 30px;
+
+}
+
+.countryName {
+    color: #35A304 !important;
+}
+
+.details {
+    font-size: 12px;
+    margin: 20px 0;
+    /* width: 50%; */
+    color: white;
+}
+
+.current {
+    font-size: 20px;
+    color: black;
+}
+
+.name {
+    color: #35A304 !important;
+}
+
+.map {
+    width: 100%;
+    margin-left: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.map svg {
+    /* height: 100%; */
+    width: 100%;
+    stroke: #333;
+    stroke-opacity: 0.5;
+    fill: #35A304;
+}
+
+.map svg path:hover {
+    fill: black;
+}
+
+.map svg path.active {
+    fill: black !important;
+}
+
+.clear {
+    display: none;
+}
+
+.myanmar {
+    display: none;
+    margin-top: -70px;
+}
+
+.thailand {
+    display: none;
+    margin-left: 0 !important;
+    width: 100%;
+}
+
+.usa {
+    display: none;
+    margin-top: 100px;
+}
+
+.japan {
+    display: none;
+    width: 100%;
+}
+
+.map svg.display {
+    text-align: center;
+    /* width: 50%; */
+    margin: auto;
+}
+
+.box {
+    display: flex;
+}
+
+.display {
+    display: block !important;
+}
+
+.countryDescription {
+    width: 100%;
+    display: none;
+    margin: 110px auto;
+}
+
+.nationName {
+    color: #35A304;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.about {
+    font-size: 18px;
+    color: black;
+    text-align: left !important;
+    margin-bottom: 30px;
+}
+
+.currentPlace {
+    font-size: 35px;
+    color: black;
+}
+
+.placeName {
+    color: #35A304;
+}
+
+a {
+    color: #35A304;
+}

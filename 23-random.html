@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            padding: 10px 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="number" placeholder="Start">
+        <input type="number" placeholder="End">
+        <button>Random</button><br>
+        <p></p>
+    </div>
+    <script>
+        let randomArr = [];
+        let randomNumber;
+        let btn = document.querySelector('button');
+        let start = document.querySelector("[placeholder='Start']");
+        let end = document.querySelector("[placeholder='End']");
+        btn.addEventListener('click', function () {
+            // start = Math.ceil(Number(start.value));
+            // end = Math.floor(Number(end.value));
+            randomNumber = Math.floor(Math.random() * (end.value - start.value) + Number(start.value));
+            console.log(start.value);
+            console.log(end.value);
+            console.log(randomNumber);
+            document.querySelector('p').innerHTML = randomNumber;
+        })
+    </script>
+</body>
+
+</html>

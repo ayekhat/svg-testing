@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="greeting">Min ga lar par</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta magnam dolorem vitae asperiores optio ab, libero
+        expedita quis architecto maxime sapiente maiores velit possimus quasi a eveniet voluptatem praesentium minus.
+    </p>
+    <p>This is paragraph</p>
+    <input type="text" id="myText">
+    <button id="btn" ondblclick="myFun()">Click me</button>
+    <ul id="list">
+        <li class="list">apple</li>
+        <li class="list">orange</li>
+        <li class="list">mango</li>
+    </ul>
+
+    <script>
+        // alert("Hello, world!");
+        // prompt("Hello, world!");
+        // document.write("Hello, world!");
+        // let x = prompt("What is your name?");
+        // document.write(x)
+        // // alert(x)
+        // let x = window.confirm("Sar pp lar?");
+        // document.write(`<h1>${x ? "Sar pp" : "Ma sar ya thay buu"}</h1>`);
+        // console.log(x);
+        // let inputText = prompt("Say something...");
+        // document.getElementById("greeting").innerHTML = inputText;
+        let text = document.getElementById("myText");
+
+        function myFun() {
+            // alert("Hello, world!");
+            let input = text.value;
+            document.getElementById("greeting").innerHTML = input;
+            document.getElementById("greeting").style.color = "red";
+
+            // console.log(input);
+        }
+    </script>
+</body>
+
+</html>

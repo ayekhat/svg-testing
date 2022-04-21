@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI-Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Odia:wght@200;300&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Anek Odia', sans-serif;
+        }
+
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            height: 1000px;
+            /* transition: 1s; */
+            /* background-image: url(./js/normal.png); */
+            /* background-color: aqua; */
+        }
+
+        .card {
+            /* background: blue;
+            color: white;
+            margin: auto;
+            width: 420px;
+            padding: 10px 15px; */
+            width: 500px;
+            height: 900px;
+            background: #fec89a;
+            color: white;
+            text-align: center;
+            margin: auto;
+            padding-bottom: 10px;
+        }
+
+        .border {
+            border: 1px solid #fec89a;
+            width: 170px !important;
+            padding: 20px 0;
+        }
+
+        .border1 {
+            border: 1px solid #fec89a;
+            width: 88% !important;
+            overflow: hidden;
+            height: 110px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #fec89a;
+            /* padding-top: 20px; */
+        }
+
+        .box-shadow {
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+        }
+
+        /* .border1 {
+            border: 1px solid white;
+            width: 170px;
+            padding: 20px 0;
+            background: white
+        } */
+
+        .result {
+            width: 88%;
+            height: 250px;
+            margin: auto;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            background-color: #fdecdd;
+            color: black;
+            visibility: hidden;
+
+        }
+
+        .details {
+            margin: auto;
+            width: 100%;
+            height: 180px;
+            color: black;
+            background-color: #fdecdd;
+            margin-top: 10px;
+            visibility: hidden;
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .btnCalculate {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            background: black;
+            color: white;
+            width: 100px;
+        }
+
+        .gender {
+            width: 100%;
+            height: 95px;
+            margin: auto;
+            margin-bottom: 10px;
+            padding-top: 10px;
+
+        }
+
+        .male {
+            margin-right: 5px;
+            transition: all .2s ease-in-out;
+        }
+
+        .male:hover {
+            transform: scale(1.1);
+        }
+
+
+        .female {
+            margin-left: 5px;
+            transition: all .2s ease-in-out;
+        }
+
+        .female:hover {
+            transform: scale(1.1);
+        }
+
+
+
+        .weight-container {
+            width: 100%;
+            height: 85px;
+            margin: auto;
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .height-container {
+            width: 100%;
+            height: 85px;
+            margin: auto;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            display: flex;
+            flex: auto;
+            justify-content: center;
+        }
+
+        .weight {
+
+            width: 88%;
+            height: 100%;
+            /* margin: 0 3px; */
+            margin-top: 10px;
+            margin-left: -10px;
+            /* width: 100px; */
+            background-color: white;
+            /* padding-bottom: 10px; */
+        }
+
+
+        .height {
+            width: 45%;
+            height: 100%;
+            /* margin: 0 3px; */
+            margin-top: 10px;
+            margin-left: -10px;
+            /* width: 100px; */
+            /* background-color: white; */
+
+        }
+
+        .inline-block {
+            display: inline-block;
+
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .width_40 {
+            width: 198px;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .padding {
+            padding: 10px 0;
+            padding-bottom: 0;
+        }
+
+        .show-details {
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            margin: auto;
+            margin-top: -32px;
+            position: relative;
+            /* margin-left: auto; */
+            display: block;
+            /* margin: auto; */
+            /* margin-bottom: */
+            visibility: hidden;
+        }
+
+        .w,
+        h1,
+        h2 {
+            transition: all .2s ease-in-out;
+
+        }
+
+        .w:hover {
+            transform: scale(1.1);
+        }
+
+        .h1:hover {
+            transform: scale(1.1);
+        }
+
+        .h2:hover {
+            transform: scale(1.1);
+        }
+
+        /* .hide-border {
+            border: none;
+            border-color: white;
+        } */
+    </style>
+</head>
+
+<body>
+    <h3>BMI Calculator</h3>
+    <div class="card">
+        <!-- for gender -->
+        <div class="gender">
+
+            <button id="male" class="male border box-shadow  inline-block" style="background-color:#fec89a"
+                onclick="takeMale()">
+                <i class="fas fa-male fa-3x " id="m" style="color:black"> </i><br>Male
+            </button>
+            <button id="female" class="female  border box-shadow inline-block" style="background-color:#fec89a"
+                onclick="takeFemale()">
+                <i class="fas fa-female fa-3x " id="f" style="color:black"></i><br>Female
+            </button>
+
+        </div>
+
+        <!-- for weight and height -->
+        <div class="weight-container">
+
+            <div class="weight inline-block">
+                <input id="weight" class="box-shadow w" type="number" placeholder="Weight (in pounds)"
+                    style="height:100%;width:100%;text-align: center;border-color: #fec89a;">
+            </div>
+        </div>
+        <div class="height-container">
+            <div class="height inline-block">
+                <input id="heightInFeet" class="box-shadow h1" type="number" placeholder="Height (feet)"
+                    style="height:100%;width:94%;text-align: center;border-color: #fec89a;">
+            </div>
+            <div class="height inline-block">
+                <input id="heightInInches" class="box-shadow h2" type="number" placeholder="Height (inches)"
+                    style="height:100%;width:94%;text-align: center;margin-left:11px;border-color: #fec89a;">
+            </div>
+
+        </div>
+        <button class="btnCalculate" onclick="calculateBMI()">Calculate</button>
+
+        <div class="result text-center box-shadow " id="results">
+            <span>Your BMI Level is</span><br>
+            <b id="result"></b><br>
+            <img id="resultImage" src="" style="width:60%;height:65%;" alt="">
+        </div>
+        <button class="show-details" id="show-details" onclick="showDetails()">Details</button>
+
+        <div class="details text-center border1 box-shadow " id="details">
+            <div><img src="./js/p" style="width:70%;margin-top:30px"></div>
+            <div style="text-align:left;padding:10px 0">
+                <p>A BMI of <span id="bmi"></span> indicates that you are at a healthy weight for your height.By
+                    maintaining a healthy weight, you lower your risk of developing serious health problems</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        let gender = "";
+        let weight = 0;
+        let heightInFeet = 0;
+        let heightInInches = 0;
+        let result;
+        let calculation;
+        let a = document.getElementById("result");
+        function takeMale() {
+            gender = "male";
+            document.getElementById("male").style.background = "black"
+            document.getElementById("male").style.color = "white";
+            document.getElementById("m").style.color = "white";
+
+            // alert(gender);
+        }
+        function takeFemale() {
+            gender = "female";
+            document.getElementById("female").style.background = "black"
+            document.getElementById("female").style.color = "white";
+            document.getElementById("f").style.color = "white";
+        }
+        function calculateBMI() {
+            weight = document.getElementById("weight").value;
+            heightInFeet = document.getElementById("heightInFeet").value;
+            heightInInches = document.getElementById("heightInInches").value;
+            btnMale = document.getElementById("male");
+            btnFemale = document.getElementById("female");
+            if (weight == "" || heightInFeet == "" || heightInInches == "" || (btnMale.style.background != "black" && btnFemale.style.background != "black")) {
+                alert("Fill in all fields!");
+            } else {
+                document.getElementById("results").style.visibility = "visible";
+                // document.getElementById("details").style.visibility = "visible";
+                document.getElementById("show-details").style.visibility = "visible";
+                calculation = (weight * 703) / ((Number(heightInInches) + (Number(heightInFeet) * 12)) ** 2);
+                result = `${calculation.toFixed(2)} `;
+                a.innerHTML = result;
+
+                if (btnMale.style.background == "black") {
+
+                    if (calculation < 18.59) {
+                        document.getElementById("resultImage").src = "./js/thin-boy.png"
+                    }
+                    if (calculation >= 18.59 && calculation <= 24.99) {
+                        document.getElementById("resultImage").src = "./js/normal-boy.png"
+                    }
+                    if (calculation > 25.00) {
+                        document.getElementById("resultImage").src = "./js/fat-boy.png"
+                    }
+                }
+                else {
+                    if (calculation < 18.59) {
+                        document.getElementById("resultImage").src = "./js/thin-girl.png"
+                    }
+                    if (calculation >= 18.59 && calculation <= 24.99) {
+                        document.getElementById("resultImage").src = "./js/normal-girl.png"
+                    }
+                    if (calculation > 25.00) {
+                        document.getElementById("resultImage").src = "./js/fat-girl.png"
+                    }
+                }
+                document.getElementById("male").style.background = "#fec89a";
+                document.getElementById("female").style.background = "#fec89a";
+                document.getElementById("male").style.color = "black";
+                document.getElementById("female").style.color = "black";
+                document.getElementById("m").style.color = "black";
+                document.getElementById("f").style.color = "black";
+                document.getElementById("weight").value = "";
+                document.getElementById("heightInFeet").value = "";
+                document.getElementById("heightInInches").value = "";
+            }
+        }
+
+        function showDetails() {
+            document.getElementById("details").style.visibility = "visible";
+            document.getElementById("bmi").innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

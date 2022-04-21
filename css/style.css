@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black
+}
+
+.btn {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.btnbox {
+    margin-top: 10px
+}
+
+.calcutator {
+    width: 270px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.display {
+    color: white;
+    text-align: right;
+    padding: 15px;
+    font-size: 35px;
+    height: 100px;
+}
+
+.keypad {}
+
+.key {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 25px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.226);
+    color: white;
+    margin: 5px;
+    text-align: center;
+    user-select: none;
+}
+
+.key:active {
+    background-color: rgba(255, 255, 255, 0.46);
+    cursor: pointer;
+}
+
+tr:first-child .key {
+    background-color: rgba(255, 255, 255, 0.833);
+    color: black;
+}
+
+tr:first-child .key:active {
+    background-color: rgba(255, 255, 255, 0.99);
+    color: black;
+    cursor: pointer;
+}
+
+tr td:last-child .key {
+    background-color: rgba(250, 147, 28, 0.995);
+    color: white;
+}
+
+tr td:last-child .key:active {
+    background-color: rgba(252, 170, 77, 0.995);
+    color: white;
+    cursor: pointer;
+}
+
+.zero {
+    border-radius: 90px;
+    width: 135px;
+}
+
+.fs {
+    font-size: 25px;
+}

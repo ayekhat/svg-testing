@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .container {
+            width: 100px;
+            padding: 50px 10px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        .opposite-container {
+            background-color: white;
+            color: black;
+        }
+
+        .opposite-body {
+            background-color: cyan;
+        }
+
+        .area {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            Yes
+        </p>
+    </div>
+    <button id="btn">change</button>
+    <hr>
+
+    <img src="./js/off.gif" alt="">
+    <br><br>
+    <button onclick="lighton()">Light On</button>
+    <button onclick="lightoff()">Light Off</button><br><br>
+    <button onclick="toggleLight()">Touch here</button>
+    <button onclick="toggleLight()">Touch here</button><br><br>
+    <div class="area">
+
+    </div>
+
+    <script>
+        // let container = document.querySelector('.container');
+        // let text = container.children[0];
+        // document.getElementById("btn").addEventListener("click", () => {
+        //     if (text.innerText == "Yes") {
+        //         text.innerText = "No";
+        //     }
+        //     else {
+        //         text.innerText = "Yes"
+        //     }
+        //     container.classList.toggle("opposite-container");
+        //     document.body.classList.toggle("opposite-body");
+
+
+        // let onbtn = document.getElementById("on");
+        // let offbtn = document.getElementById("off");
+        let lightbulb = document.querySelector("img");
+
+        // document.getElementById("on").onclick = function () { console.log("hello"); }
+
+        function lighton() {
+            lightbulb.setAttribute("src", "./js/on.gif");
+            // console.log("hello");
+        }
+        function lightoff() {
+            lightbulb.setAttribute("src", "./js/off.gif");
+            // console.log("hello");
+        }
+        function toggleLight() {
+            if (lightbulb.getAttribute("src") == "./js/on.gif") {
+                lightbulb.setAttribute("src", "./js/off.gif")
+            }
+            else {
+                lightbulb.setAttribute("src", "./js/on.gif")
+            }
+        }
+        // });
+        document.querySelector(".area").addEventListener("mouseenter", function () {
+            lighton();
+            setTimeout(lightoff, 3000);
+            // console.log("helo");
+        })
+
+    </script>
+</body>
+
+</html>

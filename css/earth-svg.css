@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    margin: 20px auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.map svg {
+    width: 100%;
+    stroke: #333;
+    stroke-opacity: 1;
+    fill: red;
+}
+
+.description {
+    width: 50%;
+    border-right: 1px solid gray;
+}
+
+.title {
+    font-size: 30px;
+    color: red;
+}
+
+.details {
+    font-size: 12px;
+    margin: 20px 0;
+    /* width: 50%; */
+    color: white;
+}
+
+.current {
+    font-size: 20px;
+    color: white;
+}
+
+.name {
+    color: red !important;
+}

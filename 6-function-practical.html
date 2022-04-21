@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let areaArr = [];//to store area result
+        let index = 0;
+        function saveRecord(w, h, r) {
+            areaArr[index] = {
+                width: w,
+                height: h,
+                result: r
+            };
+            index++;
+            return areaArr;
+
+        }
+
+        function calcArea(width, height) {
+            let area = width * height;
+            let result = area + "sqft";
+            saveRecord(width, height, result);
+            console.log(result);
+        }
+
+        //exchange-rate
+        let rate = {
+            USD: 1636,
+            EUR: 1933,
+            SGD: 1208
+        }
+
+        function exchangeToMMK(amount, currency) {
+            let calc = amount * rate[currency];
+            let result = calc + " MMK";
+            return result;
+        }
+        function exchangeFromMMK(amount, currency) {
+            let calc = amount / rate[currency];
+            let result = calc + " " + currency;
+            return result;
+        }
+
+        let fruit = {
+            orange: 200,
+            apple: 500,
+            mango: 200,
+            banana: 100
+        }
+        function calcTax(amount, percentage = 5) {
+            return percentage * amount / 100;
+        }
+        function calcTotalCost(name, quantity) {
+            let amount = fruit[name] * quantity;
+            // let tax = calcTax(amount, 5);
+            // let calc = amount + tax;
+            let result = {
+                name: name,
+                unitPrice: fruit[name],
+                quantity: quantity,
+                tax: calcTax(amount, 5),
+                cost: this.amount + this.tax,
+            }
+            return result;
+        }
+
+    </script>
+</body>
+
+</html>

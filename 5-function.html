@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //function statement
+        function getName() {
+            return "I am a function"
+        }
+        function getBirthYear(currentAge, currentYear = 2020) {
+            let birthYear = currentYear - currentAge;
+            let result = `You were born in ${birthYear}`;
+            return result;
+        }
+        let currentAge = 22;
+        function getBirthYear1() {
+            let birthYear = 2022 - currentAge;
+            let result = `You were born in ${birthYear}`;
+            return result;
+        }
+        let a = 10;
+        console.log("hi there");
+
+        //function expression
+        let run = function () {
+            return getBirthYear(22) + " This is run"
+        };
+        (function () {
+            console.log("This is IIFE")
+        })();
+
+        console.log(run());
+
+        {
+            let a = 10;
+            var b = 20;
+        }
+        console.log(b);
+    </script>
+</body>
+
+</html>

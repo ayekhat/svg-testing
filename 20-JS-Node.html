@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>apple</li>
+    </ul>
+    <script>
+        let newP = document.createElement("p");
+        let newText = document.createTextNode("Hello");
+        newP.append(newText);
+        document.body.append(newP);
+        let otherP = document.createElement("p");
+        let otherText = document.createTextNode("Hi there")
+        otherP.append(otherText);
+        document.body.append(otherP);
+
+        let h = document.createElement("h1")
+        let t = document.createTextNode("Hello")
+        h.append(t)
+        document.body.append(h);
+
+        let img = document.createElement("img");
+        document.body.append(img);
+        img.src = "/js/fat-girl.png";
+        let li = document.createElement("li");
+        let li2 = document.createElement("li");
+        let li3 = document.createElement("li");
+        li.innerText = "Orange"
+        li2.innerText = "mango"
+        li3.innerText = "banana"
+        document.querySelector("ul").append(li);
+        document.querySelector("ul").append(li2);
+        document.querySelector("ul").prepend(li3);
+        let original = document.createElement("li")
+        original.innerText = "mango"
+        let replace = document.createElement("li")
+        replace.innerText = "papaya"
+        // document.querySelectorAll("li")[0].remove();
+        document.querySelector("ul").prepend(original)
+        document.querySelector("ul").replaceChild(replace, original)
+        // let last = document.querySelectorAll("li")[2];
+        // document.querySelector("ul").removeChild(last);
+
+
+    </script>
+</body>
+
+</html>
